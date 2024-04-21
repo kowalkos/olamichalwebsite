@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<div class="image-container">
+    @for (int i = 0; i < files.Length; i++)
+    {
+        <img src="@files[i]" onclick="window.open(this.src, '_blank');"/>
+    }
+</div>
+
+@code
+{
+    static string currentDirectory = Directory.GetCurrentDirectory();
+
+    string[] files = System.IO.Directory.GetFiles(Path.Combine(currentDirectory, "StaticRes", "small"));
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < files.Length; i++)
+        {
+            files[i] = files[i].Replace(currentDirectory, "");
+        }
+    }
+
+
+}

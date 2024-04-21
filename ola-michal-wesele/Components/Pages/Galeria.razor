@@ -1,0 +1,23 @@
+﻿@page "/galeria"
+<div class="flex-container">
+    @for (int i = 0; i < _files.Length; i++)
+    {
+        <img class="flex-item" src="@_files[i]" onclick="window.open(this.src, '_blank');"/>
+    }
+</div>
+
+@code {
+
+    static readonly string CurrentDirectory = Directory.GetCurrentDirectory();
+
+    readonly string[] _files = System.IO.Directory.GetFiles(Path.Combine(CurrentDirectory, "StaticRes", "small","Galeria"));
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < _files.Length; i++)
+        {
+            _files[i] = _files[i].Replace(CurrentDirectory, "");
+        }
+    }
+
+}
