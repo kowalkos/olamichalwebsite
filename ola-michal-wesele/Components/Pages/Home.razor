@@ -1,25 +1,21 @@
 ﻿@page "/"
 
 <div class="image-container">
-    @for (int i = 0; i < files.Length; i++)
-    {
-        <img src="@files[i]" onclick="window.open(this.src, '_blank');"/>
-    }
+    <div class="image-wrapper">
+        <img src="StaticRes/small/2I9A7927.jpg" onclick="window.open(this.src, '_blank');"/>
+        <span class="image-text">Fot. Agata Zabrocka</span>
+    </div>
+    <div class="image-wrapper">
+        <img src="StaticRes/small/2I9A7693.jpg" onclick="window.open(this.src, '_blank');"/>
+        <span class="image-text">Fot. Agata Zabrocka</span>
+    </div>
+    <div class="image-wrapper">
+        <img src="StaticRes/small/2I9A7830.jpg" onclick="window.open(this.src, '_blank');"/>
+        <span class="image-text">Fot. Agata Zabrocka</span>
+    </div>
 </div>
 
 @code
 {
-    static string currentDirectory = Directory.GetCurrentDirectory();
-
-    string[] files = System.IO.Directory.GetFiles(Path.Combine(currentDirectory, "StaticRes", "small"));
-
-    protected override void OnInitialized()
-    {
-        for (int i = 0; i < files.Length; i++)
-        {
-            files[i] = files[i].Replace(currentDirectory, "");
-        }
-    }
-
 
 }

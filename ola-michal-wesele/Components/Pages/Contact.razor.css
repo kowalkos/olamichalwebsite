@@ -1,0 +1,14 @@
+﻿.image-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 10px;
+}
